@@ -93,6 +93,17 @@ $jobtitle = Jobtitle::find()->where(['id'=>$karyawan['posisi']])->one();
                         'visible' => !Yii::$app->user->isGuest && Yii::$app->user->identity->type == 'Administrator'
                     ],
 
+                    [
+                        'label' => 'Rekrutmen',
+                        'icon' => 'envelope',
+                        'url' => '#',
+                        'items' => [
+                            ['label' => 'Data Pelamar', 'icon' => 'users', 'url' => ['/pelamar'], 'active'=>in_array(\Yii::$app->controller->id,['pelamar'])],
+                            ['label' => 'Jadwal Interview', 'icon' => 'calendar', 'url' => ['/jadwal'], 'active'=>in_array(\Yii::$app->controller->id,['kas','kasakun','kasdetail'])],
+                            ['label' => 'Setting User', 'icon' => 'gear', 'url' => ['/setting'], 'active'=>in_array(\Yii::$app->controller->id,['kas','kasakun','kasdetail'])],
+                        ],
+                    ],
+
                 ],
             ]
         ) ?>

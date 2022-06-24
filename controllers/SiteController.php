@@ -96,7 +96,7 @@ class SiteController extends Controller
             // }else{
             //     return $this->redirect(['/customer']);
             // }
-            return $this->redirect(['/dashboard']);
+            return $this->redirect(['/users']);
         }
 
         return $this->render('login', [
