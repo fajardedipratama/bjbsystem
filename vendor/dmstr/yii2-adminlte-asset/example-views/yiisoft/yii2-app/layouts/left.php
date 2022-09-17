@@ -95,12 +95,12 @@ $jobtitle = Jobtitle::find()->where(['id'=>$karyawan['posisi']])->one();
 
                     [
                         'label' => 'Rekrutmen',
-                        'icon' => 'envelope',
+                        'icon' => 'user-plus',
                         'url' => '#',
                         'items' => [
                             ['label' => 'Data Pelamar', 'icon' => 'users', 'url' => ['/pelamar'], 'active'=>in_array(\Yii::$app->controller->id,['pelamar'])],
-                            ['label' => 'Jadwal Interview', 'icon' => 'calendar', 'url' => ['/jadwal'], 'active'=>in_array(\Yii::$app->controller->id,['kas','kasakun','kasdetail'])],
-                            ['label' => 'Setting User', 'icon' => 'gear', 'url' => ['/setting'], 'active'=>in_array(\Yii::$app->controller->id,['kas','kasakun','kasdetail'])],
+                            ['label' => 'Jadwal Interview', 'icon' => 'calendar', 'url' => ['/pelamarjadwal'], 'active'=>in_array(\Yii::$app->controller->id,['pelamarjadwal'])],
+                            ['label' => 'Setting Akses', 'icon' => 'gear', 'url' => ['/pelamarakses'], 'active'=>in_array(\Yii::$app->controller->id,['pelamarakses'])],
                         ],
                     ],
 

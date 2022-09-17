@@ -50,7 +50,7 @@ class Karyawan extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['badge', 'nama', 'nama_pendek', 'gender', 'tempat_lahir', 'tanggal_lahir', 'no_hp', 'alamat_rumah','tanggal_masuk', 'posisi', 'departemen','no_ktp'], 'required'],
+            [['badge', 'nama', 'nama_pendek', 'gender', 'tempat_lahir', 'tanggal_lahir', 'no_hp', 'alamat_rumah','tanggal_masuk', 'posisi', 'departemen'], 'required'],
             [['tanggal_lahir', 'tanggal_masuk','tanggal','waktu','tgl_resign'], 'safe'],
             [['badge', 'posisi', 'departemen'], 'integer'],
             [['nama','nama_pendek', 'gender', 'tempat_lahir', 'agama', 'no_hp', 'no_ktp', 'pendidikan', 'status_kawin', 'bank','no_rekening',  'nama_rekening', 'status_aktif', 'tipe_gaji'], 'string', 'max' => 100],

@@ -19,7 +19,9 @@ use Yii;
  * @property string $pendidikan
  * @property string $status_nikah
  * @property int $posisi
+ * @property int $departemen
  * @property string $status
+ * @property string $ulasan
  */
 class Pelamar extends \yii\db\ActiveRecord
 {
@@ -37,10 +39,11 @@ class Pelamar extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nama', 'email', 'no_hp', 'alamat', 'gender', 'agama', 'tanggal_lahir', 'pendidikan', 'posisi' ], 'required'],
+            [['nama', 'email', 'no_hp', 'alamat', 'gender', 'agama', 'tanggal_lahir', 'pendidikan', 'posisi', 'departemen'], 'required'],
             [['tanggal_lahir'], 'safe'],
-            [['posisi'], 'integer'],
+            [['posisi', 'departemen'], 'integer'],
             [['nama', 'email', 'no_hp', 'alamat', 'gender', 'agama', 'tempat_lahir', 'pendidikan', 'status_nikah', 'status'], 'string', 'max' => 100],
+            [['ulasan'], 'string', 'max' => 1000],
         ];
     }
 
@@ -62,11 +65,17 @@ class Pelamar extends \yii\db\ActiveRecord
             'pendidikan' => 'Pendidikan',
             'status_nikah' => 'Status Nikah',
             'posisi' => 'Posisi',
+            'departemen' => 'Departemen',
             'status' => 'Status',
+            'ulasan' => 'Ulasan',
         ];
     }
     public function getJobtitle()
     {
         return $this->hasOne(Jobtitle::className(), ['id' => 'posisi']);
+    }
+    public function getGetdepart()
+    {
+        return $this->hasOne(Departemen::className(), ['id' => 'departemen']);
     }
 }

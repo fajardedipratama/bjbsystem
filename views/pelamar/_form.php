@@ -5,6 +5,7 @@ use yii\widgets\ActiveForm;
 use dosamigos\datepicker\DatePicker;
 use yii\helpers\ArrayHelper;
 use app\models\Jobtitle;
+use app\models\Departemen;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Pelamar */
@@ -68,12 +69,19 @@ use app\models\Jobtitle;
     <div class="col-sm-3">
     <?= $form->field($model, 'status_nikah')->dropDownList(['Belum Menikah'=>'Belum Menikah','Menikah'=>'Menikah','Cerai'=>'Cerai'],['prompt'=>'--Status Nikah--']) ?>
     </div>
-
         <div class="col-sm-3">
             <?= $form->field($model, 'posisi')->dropDownList(
                 ArrayHelper::map(Jobtitle::find()->all(),'id',
                     function($model){
                         return $model['posisi'];
+                    }
+            ),['prompt'=>'--Jabatan--']); ?>
+        </div>
+        <div class="col-sm-3">
+            <?= $form->field($model, 'departemen')->dropDownList(
+                ArrayHelper::map(Departemen::find()->all(),'id',
+                    function($model){
+                        return $model['departemen'];
                     }
             ),['prompt'=>'--Jabatan--']); ?>
         </div>
